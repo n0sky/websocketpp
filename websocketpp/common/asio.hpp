@@ -93,7 +93,7 @@ namespace lib {
 #else
     namespace asio {
         using namespace boost::asio;
-        
+        /* boost::asio命名空间包装 */
         // See note above about boost <1.49 compatibility
         #if (BOOST_VERSION/100000) == 1 && ((BOOST_VERSION/100)%1000) > 48
             // Using boost::asio >=1.49 so we use chrono and steady_timer

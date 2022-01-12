@@ -147,6 +147,7 @@ int main() {
     broadcast_server server_instance;
 
     // Start a thread to run the processing loop
+    // 指向websocketpp::lib::thread并最终指向thread.hpp中的std::thread
     thread t(bind(&broadcast_server::process_messages,&server_instance));
 
     // Run the asio loop with the main thread

@@ -45,6 +45,7 @@
 // features. In most cases features that are targeted individually may also be
 // selectively disabled via an associated _WEBSOCKETPP_NOXXX_ define.
 
+// 通过cmake中的_WEBSOCKETPP_CPP11_STL_标记来定义标识_WEBSOCKETPP_CPP11_INTERNAL_, 决定lib::空间中的库使用CPP11STL
 #if defined(_WEBSOCKETPP_CPP11_STL_) || __cplusplus >= 201103L || defined(_WEBSOCKETPP_CPP11_STRICT_)
     // This check tests for blanket c++11 coverage. It can be activated in one
     // of three ways. Either the compiler itself reports that it is a full 

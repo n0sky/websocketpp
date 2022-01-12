@@ -50,6 +50,7 @@ namespace asio {
  * transport::asio::endpoint implements an endpoint transport component using
  * Asio.
  */
+/* 基于boost::asio的端点传输组件 */
 template <typename config>
 class endpoint : public config::socket_type {
 public:
@@ -78,8 +79,10 @@ public:
     typedef typename transport_con_type::ptr transport_con_ptr;
 
     /// Type of a pointer to the ASIO io_service being used
+    /* asio io_service的重命名 */
     typedef lib::asio::io_service * io_service_ptr;
     /// Type of a shared pointer to the acceptor being used
+    /* asio acceptor的重命名 */
     typedef lib::shared_ptr<lib::asio::ip::tcp::acceptor> acceptor_ptr;
     /// Type of a shared pointer to the resolver being used
     typedef lib::shared_ptr<lib::asio::ip::tcp::resolver> resolver_ptr;
@@ -193,6 +196,7 @@ public:
 
         m_alog->write(log::alevel::devel,"asio::init_asio");
 
+        /* 初始化asio::io_context 和 asio::ip::tcp::acceptor */
         m_io_service = ptr;
         m_external_io_service = true;
         m_acceptor.reset(new lib::asio::ip::tcp::acceptor(*m_io_service));
@@ -787,6 +791,7 @@ public:
                 ))
             );
         } else {
+            /* 对于asio::ip::tcp::acceptor::async_accept的一层封装调用 */
             m_acceptor->async_accept(
                 tcon->get_raw_socket(),
                 lib::bind(

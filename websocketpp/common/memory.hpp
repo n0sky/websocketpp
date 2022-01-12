@@ -61,7 +61,7 @@
 
 namespace websocketpp {
 namespace lib {
-
+// c++11中使用std::shared_ptr
 #ifdef _WEBSOCKETPP_CPP11_MEMORY_
     using std::shared_ptr;
     using std::weak_ptr;

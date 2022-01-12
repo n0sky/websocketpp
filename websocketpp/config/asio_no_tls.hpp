@@ -63,6 +63,7 @@ struct asio : public core {
             socket_type;
     };
 
+    /* 定义传输的类型(指向封装的:transport::asio) */
     typedef websocketpp::transport::asio::endpoint<transport_config>
         transport_type;
 };
