@@ -426,7 +426,7 @@ public:
         m_alog->write(log::alevel::devel,"asio::listen");
 
         lib::asio::error_code bec;
-
+        /* 使用asio::acceptor */
         m_acceptor->open(ep.protocol(),bec);
         if (bec) {ec = clean_up_listen_after_error(bec);return;}
         

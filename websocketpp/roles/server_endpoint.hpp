@@ -132,6 +132,7 @@ public:
           return;
         }
 
+        /* may: asio async_accept */
         transport_type::async_accept(
             lib::static_pointer_cast<transport_con_type>(con),
             lib::bind(&type::handle_accept,this,con,lib::placeholders::_1),
